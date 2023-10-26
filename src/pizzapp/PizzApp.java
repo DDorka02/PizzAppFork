@@ -7,13 +7,14 @@ public class PizzApp extends javax.swing.JFrame {
     int db = 1;
     double vegsoAr;
     double meret;
+    int extra;
 
 
     public PizzApp() {
         initComponents();
         pizzaAlapAr = 1750;
         
-        int meret = 1;
+        meret = 1;
 
         int extra1 = 0;
         int extra2 = 0;
@@ -22,10 +23,7 @@ public class PizzApp extends javax.swing.JFrame {
         
         db = 1;
         
-        int vegsoAr =  pizzaAlapAr * meret + extrak;
-        vegsoAr *= db;
-                
-        lblAr.setText(vegsoAr + "");
+        szamitasEsKiiras();
         
     }
 
@@ -81,8 +79,12 @@ public class PizzApp extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(rdbMeret32);
-        rdbMeret32.setSelected(true);
         rdbMeret32.setText("32 cm");
+        rdbMeret32.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                rdbMeret32ItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlMeretLayout = new javax.swing.GroupLayout(pnlMeret);
         pnlMeret.setLayout(pnlMeretLayout);
@@ -149,10 +151,25 @@ public class PizzApp extends javax.swing.JFrame {
         pnlExtrak.setBorder(javax.swing.BorderFactory.createTitledBorder("Extrák"));
 
         chbSajt.setText("sajt");
+        chbSajt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chbSajtActionPerformed(evt);
+            }
+        });
 
         chbHagyma.setText("hagyma");
+        chbHagyma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chbHagymaActionPerformed(evt);
+            }
+        });
 
         chbAnanasz.setText("ananász");
+        chbAnanasz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chbAnanaszActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlExtrakLayout = new javax.swing.GroupLayout(pnlExtrak);
         pnlExtrak.setLayout(pnlExtrakLayout);
@@ -257,11 +274,9 @@ public class PizzApp extends javax.swing.JFrame {
             pizzaAlapAr = 1600;
         }else if(pizzaIndex == 2) {
                pizzaAlapAr = 1750;
-        }
-        else if(pizzaIndex == 3) {
+        }else if(pizzaIndex == 3) {
                pizzaAlapAr = 2100;
-                    
-        int meret = 1;
+        }           
         int extra1 = 0;
         int extra2 = 0;
         int extra3 = 0;
@@ -269,20 +284,49 @@ public class PizzApp extends javax.swing.JFrame {
         
         db = 1;
         
-         int vegsoAr =  pizzaAlapAr * meret + extrak;
-        vegsoAr *= db;
-                
-        lblAr.setText(vegsoAr + "");
+        szamitasEsKiiras();
     }//GEN-LAST:event_cmdValaszthatoPizzakActionPerformed
 
     private void rdbMeret25ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret25ItemStateChanged
         meret = .75;
-        vegsoAr =  pizzaAlapAr * meret + extrak;
-        vegsoAr *= db;
-                
-        lblAr.setText(vegsoAr + "");
+        
+        szamitasEsKiiras();
     }//GEN-LAST:event_rdbMeret25ItemStateChanged
 
+    private void rdbMeret32ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret32ItemStateChanged
+        meret = 1;
+        
+        szamitasEsKiiras();
+    }//GEN-LAST:event_rdbMeret32ItemStateChanged
+
+    private void chbSajtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbSajtActionPerformed
+        extra = 1;
+        
+        extak();
+
+    }//GEN-LAST:event_chbSajtActionPerformed
+
+    private void chbHagymaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbHagymaActionPerformed
+        extra = 2;
+        extak();
+    }//GEN-LAST:event_chbHagymaActionPerformed
+
+    private void chbAnanaszActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbAnanaszActionPerformed
+        extra = 3;
+        extak();
+    }//GEN-LAST:event_chbAnanaszActionPerformed
+
+    private void extak() {
+        vegsoAr =  pizzaAlapAr * meret + extrak + 25;
+        vegsoAr *= db;
+        lblAr.setText(vegsoAr + "");
+    }
+    private void szamitasEsKiiras() {
+        vegsoAr =  pizzaAlapAr * meret + extrak;
+        vegsoAr *= db;
+        lblAr.setText(vegsoAr + "");
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
