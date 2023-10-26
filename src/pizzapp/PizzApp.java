@@ -2,20 +2,27 @@ package pizzapp;
 
 public class PizzApp extends javax.swing.JFrame {
 
+    int pizzaAlapAr = -1;
+    int extrak;
+    int db = 1;
+    double vegsoAr;
+    double meret;
+
+
     public PizzApp() {
         initComponents();
-        int pizzaAlapAr2 = 1750;
+        pizzaAlapAr = 1750;
         
         int meret = 1;
 
         int extra1 = 0;
         int extra2 = 0;
         int extra3 = 0;
-        int extrak = extra1 + extra2 + extra3;
+        extrak = extra1 + extra2 + extra3;
         
-        int db = 1;
+        db = 1;
         
-        int vegsoAr =  pizzaAlapAr2 * meret + extrak;
+        int vegsoAr =  pizzaAlapAr * meret + extrak;
         vegsoAr *= db;
                 
         lblAr.setText(vegsoAr + "");
@@ -67,6 +74,11 @@ public class PizzApp extends javax.swing.JFrame {
 
         buttonGroup1.add(rdbMeret25);
         rdbMeret25.setText("25 cm");
+        rdbMeret25.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                rdbMeret25ItemStateChanged(evt);
+            }
+        });
 
         buttonGroup1.add(rdbMeret32);
         rdbMeret32.setSelected(true);
@@ -236,32 +248,40 @@ public class PizzApp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdValaszthatoPizzakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdValaszthatoPizzakActionPerformed
+       
         int pizzaIndex = cmdValaszthatoPizzak.getSelectedIndex();
-        int pizzaAlapAr = -1;
+        
         if(pizzaIndex == 0) {
             pizzaAlapAr = 1590;
         }else if(pizzaIndex == 1) {
             pizzaAlapAr = 1600;
         }else if(pizzaIndex == 2) {
-               pizzaAlapAr = 2100;
+               pizzaAlapAr = 1750;
         }
-        
-        int pizzaAlapAr3 = 2000;
-        
+        else if(pizzaIndex == 3) {
+               pizzaAlapAr = 2100;
+                    
         int meret = 1;
-
         int extra1 = 0;
         int extra2 = 0;
         int extra3 = 0;
-        int extrak = extra1 + extra2 + extra3;
+        extrak = extra1 + extra2 + extra3;
         
-        int db = 1;
+        db = 1;
         
-        int vegsoAr =  pizzaAlapAr3 * meret + extrak;
+         int vegsoAr =  pizzaAlapAr * meret + extrak;
         vegsoAr *= db;
                 
         lblAr.setText(vegsoAr + "");
     }//GEN-LAST:event_cmdValaszthatoPizzakActionPerformed
+
+    private void rdbMeret25ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret25ItemStateChanged
+        meret = .75;
+        vegsoAr =  pizzaAlapAr * meret + extrak;
+        vegsoAr *= db;
+                
+        lblAr.setText(vegsoAr + "");
+    }//GEN-LAST:event_rdbMeret25ItemStateChanged
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
