@@ -8,7 +8,9 @@ public class PizzApp extends javax.swing.JFrame {
     double vegsoAr;
     double meret;
     int extra;
-
+    int extra1 = 0;
+    int extra2 = 0;
+    int extra3 = 0;
 
     public PizzApp() {
         initComponents();
@@ -16,9 +18,6 @@ public class PizzApp extends javax.swing.JFrame {
         
         meret = 1;
 
-        int extra1 = 0;
-        int extra2 = 0;
-        int extra3 = 0;
         extrak = extra1 + extra2 + extra3;
         
         db = 1;
@@ -199,6 +198,11 @@ public class PizzApp extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txaOsszesito);
 
         btnRendel.setText("Megrendelem");
+        btnRendel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRendelMouseClicked(evt);
+            }
+        });
 
         lblOsszesito.setText("Összestő:");
 
@@ -277,9 +281,9 @@ public class PizzApp extends javax.swing.JFrame {
         }else if(pizzaIndex == 3) {
                pizzaAlapAr = 2100;
         }           
-        int extra1 = 0;
-        int extra2 = 0;
-        int extra3 = 0;
+        extra1 = 0;
+        extra2 = 0;
+        extra3 = 0;
         extrak = extra1 + extra2 + extra3;
         
         db = 1;
@@ -300,27 +304,62 @@ public class PizzApp extends javax.swing.JFrame {
     }//GEN-LAST:event_rdbMeret32ItemStateChanged
 
     private void chbSajtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbSajtActionPerformed
-        extra = 1;
-        
-        extak();
-
+       
+        if (chbSajt.isSelected()) {
+            extra1 = 25;
+            extrak = extra1 + extra2 + extra3;
+            
+            szamitasEsKiiras();
+        }
+        else if (chbSajt.isSelected()== false) {
+            extra1 = 0;
+            extrak = extra1 + extra2 + extra3;
+            
+            szamitasEsKiiras();
+            
+        }
     }//GEN-LAST:event_chbSajtActionPerformed
 
     private void chbHagymaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbHagymaActionPerformed
-        extra = 2;
-        extak();
+      if (chbHagyma.isSelected()) {
+            extra2 = 25;
+            extrak = extra1 + extra2 + extra3;
+            
+            szamitasEsKiiras();
+        }
+        else if (chbHagyma.isSelected()== false) {
+            extra2 = 0;
+            extrak = extra1 + extra2 + extra3;
+            
+            szamitasEsKiiras();
+            
+        }
+        
     }//GEN-LAST:event_chbHagymaActionPerformed
 
     private void chbAnanaszActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbAnanaszActionPerformed
-        extra = 3;
-        extak();
+      if (chbAnanasz.isSelected()) {
+            extra3 = 25;
+            extrak = extra1 + extra2 + extra3;
+            
+            szamitasEsKiiras();
+        }
+        else if (chbAnanasz.isSelected()== false) {
+            extra3 = 0;
+            extrak = extra1 + extra2 + extra3;
+            
+            szamitasEsKiiras();
+            
+        }
+        
     }//GEN-LAST:event_chbAnanaszActionPerformed
 
-    private void extak() {
-        vegsoAr =  pizzaAlapAr * meret + extrak + 25;
-        vegsoAr *= db;
-        lblAr.setText(vegsoAr + "");
-    }
+    private void btnRendelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRendelMouseClicked
+        
+    }//GEN-LAST:event_btnRendelMouseClicked
+
+    
+    
     private void szamitasEsKiiras() {
         vegsoAr =  pizzaAlapAr * meret + extrak;
         vegsoAr *= db;
