@@ -13,6 +13,8 @@ public class PizzApp extends javax.swing.JFrame {
     int extra1 = 0;
     int extra2 = 0;
     int extra3 = 0;
+    String pizzaNev = "Songoku";
+    
 
     public PizzApp() {
         initComponents();
@@ -310,8 +312,9 @@ public class PizzApp extends javax.swing.JFrame {
         extrak = extra1 + extra2 + extra3;
         
         db = 1;
-        
+        pizzaNev = cmdValaszthatoPizzak.getItemAt(pizzaIndex);
         szamitasEsKiiras();
+       
     }//GEN-LAST:event_cmdValaszthatoPizzakActionPerformed
 
     private void rdbMeret25ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret25ItemStateChanged
@@ -341,7 +344,7 @@ public class PizzApp extends javax.swing.JFrame {
     }//GEN-LAST:event_chbAnanaszActionPerformed
 
     private void btnRendelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRendelMouseClicked
-        String osszesito = "A kiválasztott pizza: ("+ db + "db)";
+        String osszesito = "A kiválasztott pizza: "+ pizzaNev + "("+ db + "db)";
         txaOsszesito.setText(osszesito);
     }//GEN-LAST:event_btnRendelMouseClicked
 
