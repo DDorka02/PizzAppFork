@@ -16,6 +16,8 @@ public class PizzApp extends javax.swing.JFrame {
     String pizzaNev = "Songoku";
     int meretNev;
     String meretSzam ="25 cm";
+    String extra = "";
+    
     
 
     public PizzApp() {
@@ -335,23 +337,22 @@ public class PizzApp extends javax.swing.JFrame {
     }//GEN-LAST:event_rdbMeret32ItemStateChanged
 
     private void chbSajtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbSajtActionPerformed
-       
         hozzaAdFeltet(chbSajt);
-        //String extra1 = chbSajt.getText();
+        extra += chbSajt.getText();
     }//GEN-LAST:event_chbSajtActionPerformed
 
     private void chbHagymaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbHagymaActionPerformed
         hozzaAdFeltet(chbHagyma);
-        
+        extra += chbHagyma.getText();
     }//GEN-LAST:event_chbHagymaActionPerformed
 
     private void chbAnanaszActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbAnanaszActionPerformed
         hozzaAdFeltet(chbAnanasz);
-        
+        extra += chbAnanasz.getText();
     }//GEN-LAST:event_chbAnanaszActionPerformed
 
     private void btnRendelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRendelMouseClicked
-        String osszesito = "A kiválasztott pizza: "+ pizzaNev + "("+ db + "db) \n mérete:"+ meretSzam;
+        String osszesito = "A kiválasztott pizza: "+ pizzaNev + "("+ db + "db) \n mérete:"+ meretSzam +"\n feltétek: \n -"+ extra;
         
         txaOsszesito.setText(osszesito);
     }//GEN-LAST:event_btnRendelMouseClicked
