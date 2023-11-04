@@ -134,6 +134,11 @@ public class PizzApp extends javax.swing.JFrame {
         lblAr.setText("0");
 
         numDb.setModel(new javax.swing.SpinnerNumberModel(1, 1, 5, 1));
+        numDb.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                numDbStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlFizetendoLayout = new javax.swing.GroupLayout(pnlFizetendo);
         pnlFizetendo.setLayout(pnlFizetendoLayout);
@@ -336,8 +341,13 @@ public class PizzApp extends javax.swing.JFrame {
     }//GEN-LAST:event_chbAnanaszActionPerformed
 
     private void btnRendelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRendelMouseClicked
-        
+        String osszesito = "A kiválasztott pizza: ("+ db + "db)";
+        txaOsszesito.setText(osszesito);
     }//GEN-LAST:event_btnRendelMouseClicked
+
+    private void numDbStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_numDbStateChanged
+        db = (int) numDb.getValue();
+    }//GEN-LAST:event_numDbStateChanged
 
     
     
