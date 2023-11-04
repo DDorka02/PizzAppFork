@@ -359,6 +359,7 @@ public class PizzApp extends javax.swing.JFrame {
 
     private void numDbStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_numDbStateChanged
         db = (int) numDb.getValue();
+        szamitasEsKiiras();
     }//GEN-LAST:event_numDbStateChanged
 
     
