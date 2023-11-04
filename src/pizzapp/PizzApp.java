@@ -338,21 +338,21 @@ public class PizzApp extends javax.swing.JFrame {
 
     private void chbSajtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbSajtActionPerformed
         hozzaAdFeltet(chbSajt);
-        extra += chbSajt.getText();
+        extra += "-" +chbSajt.getText() +"\n";
     }//GEN-LAST:event_chbSajtActionPerformed
 
     private void chbHagymaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbHagymaActionPerformed
         hozzaAdFeltet(chbHagyma);
-        extra += chbHagyma.getText();
+        extra += "-" + chbHagyma.getText()+"\n";
     }//GEN-LAST:event_chbHagymaActionPerformed
 
     private void chbAnanaszActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbAnanaszActionPerformed
         hozzaAdFeltet(chbAnanasz);
-        extra += chbAnanasz.getText();
+        extra += "-" +chbAnanasz.getText()+"\n";
     }//GEN-LAST:event_chbAnanaszActionPerformed
 
     private void btnRendelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRendelMouseClicked
-        String osszesito = "A kiválasztott pizza: "+ pizzaNev + "("+ db + "db) \n mérete:"+ meretSzam +"\n feltétek: \n -"+ extra;
+        String osszesito = "A kiválasztott pizza: "+ pizzaNev + "("+ db + "db) \n mérete:"+ meretSzam +"\n feltétek: \n"+ extra;
         
         txaOsszesito.setText(osszesito);
     }//GEN-LAST:event_btnRendelMouseClicked
