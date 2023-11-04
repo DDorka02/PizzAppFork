@@ -1,5 +1,8 @@
 package pizzapp;
 
+import java.awt.event.ActionEvent;
+import javax.swing.JCheckBox;
+
 public class PizzApp extends javax.swing.JFrame {
 
     int pizzaAlapAr = -1;
@@ -7,7 +10,6 @@ public class PizzApp extends javax.swing.JFrame {
     int db = 1;
     double vegsoAr;
     double meret;
-    int extra;
     int extra1 = 0;
     int extra2 = 0;
     int extra3 = 0;
@@ -24,6 +26,22 @@ public class PizzApp extends javax.swing.JFrame {
         
         szamitasEsKiiras();
         
+    }
+    
+    private void hozzaAdFeltet(JCheckBox checkBox){
+         if (checkBox.isSelected()) {
+            extra1 = 25;
+            extrak = extrak + extra1 + extra2 + extra3;
+            
+            szamitasEsKiiras();
+        }
+        else if (checkBox.isSelected()== false) {
+            extra1 = -25;
+            extrak = extrak + extra1 + extra2 + extra3;
+            
+            szamitasEsKiiras();
+            
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -305,53 +323,16 @@ public class PizzApp extends javax.swing.JFrame {
 
     private void chbSajtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbSajtActionPerformed
        
-        if (chbSajt.isSelected()) {
-            extra1 = 25;
-            extrak = extra1 + extra2 + extra3;
-            
-            szamitasEsKiiras();
-        }
-        else if (chbSajt.isSelected()== false) {
-            extra1 = 0;
-            extrak = extra1 + extra2 + extra3;
-            
-            szamitasEsKiiras();
-            
-        }
+        hozzaAdFeltet(chbSajt);
     }//GEN-LAST:event_chbSajtActionPerformed
 
     private void chbHagymaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbHagymaActionPerformed
-      if (chbHagyma.isSelected()) {
-            extra2 = 25;
-            extrak = extra1 + extra2 + extra3;
-            
-            szamitasEsKiiras();
-        }
-        else if (chbHagyma.isSelected()== false) {
-            extra2 = 0;
-            extrak = extra1 + extra2 + extra3;
-            
-            szamitasEsKiiras();
-            
-        }
+        hozzaAdFeltet(chbHagyma);
         
     }//GEN-LAST:event_chbHagymaActionPerformed
 
     private void chbAnanaszActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbAnanaszActionPerformed
-      if (chbAnanasz.isSelected()) {
-            extra3 = 25;
-            extrak = extra1 + extra2 + extra3;
-            
-            szamitasEsKiiras();
-        }
-        else if (chbAnanasz.isSelected()== false) {
-            extra3 = 0;
-            extrak = extra1 + extra2 + extra3;
-            
-            szamitasEsKiiras();
-            
-        }
-        
+        hozzaAdFeltet(chbAnanasz);
     }//GEN-LAST:event_chbAnanaszActionPerformed
 
     private void btnRendelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRendelMouseClicked
