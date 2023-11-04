@@ -14,6 +14,8 @@ public class PizzApp extends javax.swing.JFrame {
     int extra2 = 0;
     int extra3 = 0;
     String pizzaNev = "Songoku";
+    int meretNev;
+    String meretSzam ="25 cm";
     
 
     public PizzApp() {
@@ -90,6 +92,7 @@ public class PizzApp extends javax.swing.JFrame {
         pnlMeret.setBorder(javax.swing.BorderFactory.createTitledBorder("Méret"));
 
         buttonGroup1.add(rdbMeret25);
+        rdbMeret25.setSelected(true);
         rdbMeret25.setText("25 cm");
         rdbMeret25.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -321,17 +324,20 @@ public class PizzApp extends javax.swing.JFrame {
         meret = .75;
         
         szamitasEsKiiras();
+        meretSzam = rdbMeret25.getText();
     }//GEN-LAST:event_rdbMeret25ItemStateChanged
 
     private void rdbMeret32ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret32ItemStateChanged
         meret = 1;
         
         szamitasEsKiiras();
+        meretSzam = rdbMeret32.getText();
     }//GEN-LAST:event_rdbMeret32ItemStateChanged
 
     private void chbSajtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbSajtActionPerformed
        
         hozzaAdFeltet(chbSajt);
+        //String extra1 = chbSajt.getText();
     }//GEN-LAST:event_chbSajtActionPerformed
 
     private void chbHagymaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbHagymaActionPerformed
@@ -341,10 +347,12 @@ public class PizzApp extends javax.swing.JFrame {
 
     private void chbAnanaszActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbAnanaszActionPerformed
         hozzaAdFeltet(chbAnanasz);
+        
     }//GEN-LAST:event_chbAnanaszActionPerformed
 
     private void btnRendelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRendelMouseClicked
-        String osszesito = "A kiválasztott pizza: "+ pizzaNev + "("+ db + "db)";
+        String osszesito = "A kiválasztott pizza: "+ pizzaNev + "("+ db + "db) \n mérete:"+ meretSzam;
+        
         txaOsszesito.setText(osszesito);
     }//GEN-LAST:event_btnRendelMouseClicked
 
